@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="chat-idbootcamp">
+    <h3>Chat Id-Bootcamps</h3>
+    <h4 >CLIENTES CONECTADOS: {{numClientes}}</h4>
+<div>
+    <i>{{ audioOn ? '🔊' : '🔇'}}</i><input type="checkbox" [(ngModel)]="audioOn">
+</div>
+
+    <div class="chat" *ngFor="let msg of arrMensajes" [ngClass]="{ propio: (msg.socket_id === socket.id)}">
+    <h4>{{ msg.usuario }}:</h4>
+    <p>{{ msg.mensaje }}</p>
+  </div>
+
+  <div class="chat_input">
+    <div>
+      <label>Usuario:</label>
+      <input type="text" [(ngModel)]="data.usuario" />
+    </div>
+    <div>
+      <label>Mensaje:</label>
+      <textarea rows="5" cols="50" [(ngModel)]="data.mensaje"></textarea>
+    </div>
+    <button (click)="onClick()">Enviar</button>
+  </div>
+
+</div>
+</div>
